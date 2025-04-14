@@ -2,32 +2,48 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const orderRoutes = require('./routes/orderRoutes');
 const path = require('path');
+const Order = require('./models/Order');
 
-mongoose.connect('mongodb://venky_database:venky9985989412@ac-l5qxvfc-shard-00-00.abflfq6.mongodb.net:27017,ac-l5qxvfc-shard-00-01.abflfq6.mongodb.net:27017,ac-l5qxvfc-shard-00-02.abflfq6.mongodb.net:27017/?replicaSet=atlas-135sox-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=Cluster0', 
+dotenv.config();
+
+mongoose.connect('mongodb+srv://varunbotcha:ZhWVDkbx7jYVPqPf@cluster0.cq5n7w3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', 
   { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch(err => console.error('Error connecting to MongoDB Atlas', err));
 
-dotenv.config();
-
 const app = express();
-
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');  // Ensure you are using EJS for views
+app.use(express.static(path.join(__dirname, 'css')));
 
-// Add a route to serve the homepage
+
+app.set('view engine', 'ejs');
+
+
 app.get('/', (req, res) => {
-  res.render('index.ejs');  // This should point to the views/index.ejs file
+  res.render('index'); 
 });
 
-// Include your order routes
-app.use('/order', orderRoutes);
 
-// Start the server
-const PORT = process.env.PORT || 3000;
+app.post('/order', async (req, res) => {
+  console.log('Received order:', req.body);
+  try {
+    let { name, age, foodItems } = req.body;
+    if (typeof foodItems === 'string') {
+      foodItems = foodItems.split(',').map(item => item.trim());
+    }
+    const order = new Order({ name, age, foodItems });
+    await order.save();
+    res.send('Order placed successfully!');
+  } catch (err) {
+    console.error('Order saving error:', err);
+    res.status(500).send('Error placing order');
+  }
+});
+
+
+const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
