@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const path = require('path');
-const Order = require('./models/Order');
+const Order = require('./models/order');
 
 dotenv.config();
 
