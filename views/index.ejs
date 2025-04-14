@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Fiesta - Order Now</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Order Your Favorite Food</h1>
+
+    <form action="/order" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="number" name="age" placeholder="Your Age" required>
+
+      <p>Select Food Items:</p>
+      <div class="food-grid">
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Pizza">
+          <img src="/images/pizza.jpg" alt="Pizza">
+          <p>Pizza</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Burger">
+          <img src="/images/burger.jpg" alt="Burger">
+          <p>Burger</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Biryani">
+          <img src="/images/biryani.jpg" alt="Biryani">
+          <p>Biryani</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Pasta">
+          <img src="/images/pasta.jpg" alt="Pasta">
+          <p>Pasta</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Noodles">
+          <img src="/images/noodles.jpg" alt="Noodles">
+          <p>Noodles</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Sandwich">
+          <img src="/images/sandwich.jpg" alt="Sandwich">
+          <p>Sandwich</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Coffee">
+          <img src="/images/coffee.jpg" alt="Coffee">
+          <p>Coffee</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Tea">
+          <img src="/images/tea.jpg" alt="Tea">
+          <p>Tea</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Salad">
+          <img src="/images/salad.jpg" alt="Salad">
+          <p>Salad</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Ice Cream">
+          <img src="/images/icecream.jpg" alt="Ice Cream">
+          <p>Ice Cream</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Fried Rice">
+          <img src="/images/friedrice.jpg" alt="Fried Rice">
+          <p>Fried Rice</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Samosa">
+          <img src="/images/samosa.jpg" alt="Samosa">
+          <p>Samosa</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Taco">
+          <img src="/images/taco.jpg" alt="Taco">
+          <p>Taco</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Soup">
+          <img src="/images/soup.jpg" alt="Soup">
+          <p>Soup</p>
+        </label>
+
+        <label class="food-card">
+          <input type="checkbox" name="foodItems" value="Juice">
+          <img src="/images/juice.jpg" alt="Juice">
+          <p>Juice</p>
+        </label>
+      </div>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+</body>
+</html>
